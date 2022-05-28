@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+  <link rel="shortcut icon" type="image/svg" href="assets/images/logo.svg">
+  <title>El Geladon</title>
+</head>
+
+<body>
+  <section class="Home">
+    <header class="Home__header Header">
+      <div class="row">
+        <div class="Header__logo Logo">
+          <img src="assets/images/logo.svg" width="70px" alt="Logo El Geladon" class="Logo__icone" />
+          <span class="Logo__titulo"> El Geladon </span>
+        </div>
+
+        <div class="Header__opcoes Opcoes">
+          <input type="text" id="search-input" placeholder="Digite o ID e clique em 'Escolher'" />
+          <button class="search-input" onclick="findByIdPaletas()"><i class="bi bi-search"></i></button>
+        </div>
+      </div>
+      </div>
+    </header>
+
+    <section class="options">
+      <span class="msg-alert"></span>
+     <div class="btns-list">
+      <a href="/" class="default-button list-all">Todas as Paletas</a>
+      <button type="button" class="default-button" onclick="abrirModal()">Cadastrar Paleta</button>
+     </div>
+    </section>
+
+    <section class="modal-overlay" id="overlay">
+
+      <div class="modal">
+
+        <div class="modal-header">
+          <h2 id="title-header-modal">Cadastrar uma paleta</h2>
+          <a onclick="fecharModalCadastro()" class="close-modal">x</a>
+        </div>
+
+        <div class="modal-body">
+          <div>
+            <input type="hidden" id="id">
+            <input type="text" name="sabor" id="sabor" placeholder="Sabor da Paleta">
+            <input type="number" name="preco" id="preco" placeholder="Preço da Paleta">
+            <textarea type="text" name="descricao" id="descricao" placeholder="Descrição da Paleta" rows="5"></textarea>
+            <input type="text" name="foto" id="foto" placeholder="Link da Foto da Paleta">
+            <button id="cadastrar" onclick="submitPaleta()">Cadastrar</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="modal-overlay" id="overlay-delete">
+      <div class="modal">
+        <div class="modal-header">
+          <h2 id="title-header-modal">Confirmação de deleção</h2>
+          <a onclick="fecharModalDelete()" class="close-modal">x</a>
+        </div>
+        <div class="modal-body-delete">
+          <p>Deseja ralmente apagar essa paleta?</p>
+          <div class="btns_delete">
+            <button class="btn_delete_no btn_delete" onclick="fecharModalDelete()">Não</button>
+            <button class="btn_delete_yes btn_delete">Sim</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <div class="Home__container">
+
+      <div class="PaletaLista" id="paletaList"></div>
+
+      <div id="paletaEscolhida"></div>
+
+    </div>
+  </section>
+  <script src="./assets/script.js"></script>
+</body>
+
+</html>
